@@ -14,14 +14,16 @@ import FooterSection from "./FooterSection";
 import Lezzetus from "./Lezzetus";
 import Kurye from "./Kurye";
 import Hackathlon from "./Hackathlon";
+import homeBanner from "../../images/iteration-1-images/home-banner.png";
 
 const Page = styled.div`
     font-family: Roboto Condensed, sans-serif;
 `;
 const MainUpper = styled.section`
-    background-image: url("../../images/iteration-1-images/home-banner.png");
+    background-image: url(${homeBanner});
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
     width: 100%;
     @media (max-width: 768px) {
         background-position: center;
