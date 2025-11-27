@@ -379,7 +379,7 @@ const Red = styled.span`
 `;
 
 export default function OrderForm({setFormData}) {
-    const toppings = ["Pepperoni", "Sosis", "Kanada Jambonu", "Tavuk Izgara", "Soğan", "Domates", "Mısır", "Sucuk", "Jalepeno", "Sarımsak", "Biber", "Sucuk", "Ananas", "Kabak"];
+    const toppings = ["Pepperoni", "Sosis", "Jambon", "Tavuk Izgara", "Soğan", "Domates", "Mısır", "Sucuk", "Jalepeno", "Sarımsak", "Biber", "Sucuk", "Ananas", "Kabak"];
     const basePrice = 85.50;
     const errorMessages = {
         name: "İsim en az 3 karakter olmalıdır.",
@@ -479,7 +479,11 @@ export default function OrderForm({setFormData}) {
     const handleSubmit = (event) => {
         event.preventDefault();
         if (isValid) {
-            axios.post("https://reqres.in/api/pizza", form)
+            axios.post("https://reqres.in/api/pizza", form, 
+                {
+                    headers: {"x-api-key": "reqres-free-v1"}
+                }
+            )
             .then((response) => {
                 console.log(response.data);
                 setFormData(form);
